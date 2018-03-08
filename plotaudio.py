@@ -69,7 +69,7 @@ class PlotWindow(Gtk.Window):
         cr.rectangle(0, 100, oscope_width_px, oscope_height_px)
         cr.set_source_rgb(*white)
         cr.fill()
-        
+
         for i,c in enumerate(self.state.history[0:CHUNKS_IN_VIEW]):
             dot_y_pos =  100 + oscope_height_px - c  / 3
             cr.new_sub_path()
@@ -98,7 +98,7 @@ def ring_in(a, b):
 
 def timed_redraw(win, plot, q):
     v = 0
-    vals = np.zeros(SUMMARY_BUFFER_MS * 1.0 / 1000 * RATE)
+    vals = np.zeros(int(SUMMARY_BUFFER_MS * 1.0 / 1000 * RATE))
     #print "vals len", len(vals)
     CHUNK_NUM  = 0
     while True:
@@ -143,7 +143,7 @@ CHUNK = 1024
 CHANNELS = 1
 #RATE = 44100
 RATE = 11025
-FORMAT = pyaudio.paInt16 
+FORMAT = pyaudio.paInt16
 SHORT_NORMALIZE = (1.0/32768.0)
 
 q = Queue()
