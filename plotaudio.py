@@ -15,7 +15,6 @@ import numpy
 import plotqueue
 import lpc
 import math
-from scipy.signal import lfilter
 import pyautogui
 
 CHUNKS_IN_VIEW = 200
